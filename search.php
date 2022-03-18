@@ -30,6 +30,8 @@ include_once "api/api_search.php";
 				$backdrop = 'http://image.tmdb.org/t/p/w300'.$backdrop;
 			}
 			echo '<li><a href="movie.php?id=' . $id . '"><img src="'.$backdrop.'"><h4>'.$title.'</h4></a></li>';
+
+			
 		}
         }elseif($channel=="tv"){
             foreach($search->results as $results){
