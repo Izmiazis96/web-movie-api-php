@@ -119,14 +119,14 @@
         foreach($movie_similar_id->results as $sim){
         
           $output.='<div class="col-md-4">
-                <div class="card">
-                <img src="http://image.tmdb.org/t/p/w500'.$sim->backdrop_path.'" alt="" class="card-img-top" >
-                <div class="card-body">
-                <h4 class="card-title">'.$sim->title.' ('.substr($sim->release_date, 0, 4).')</h4>
-                <a href="movie.php?id='.$sim->id.'" class="btn btn-primary">Selengkapnya</a>
-                </div>
-                </div>
-                </div>';
+                      <div class="card">
+                        <div class="card-body">
+                          <img src="http://image.tmdb.org/t/p/w500'.$sim->backdrop_path.'" alt="" class="card-img-top" >
+                          <h4 class="card-title">'.$sim->title.' ('.substr($sim->release_date, 0, 4).')</h4>
+                          <a href="movie.php?id='.$sim->id.'" class="btn btn-primary">Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>';
                 if($count <= 0){
                   break;
                   $count--;

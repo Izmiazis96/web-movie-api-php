@@ -7,9 +7,11 @@ $title = 'Result Search | '.$input;
 include_once "header.php";
 include_once "api/api_search.php";
 ?>
-    <h3>Result Search: <em><?php echo $input?></em></h3>
+    <h3 class="text-center mb-5 mt-5">Result Search: <em><?php echo $input?></em></h3>
     <hr>
     <ul>
+		<div class="container">
+			<div class="row">
 <?php
 	if($channel=="movie"){	
                 foreach($search->results as $results){
@@ -29,10 +31,20 @@ include_once "api/api_search.php";
 			} else {
 				$backdrop = 'http://image.tmdb.org/t/p/w300'.$backdrop;
 			}
-			echo '<li><a href="movie.php?id=' . $id . '"><img src="'.$backdrop.'"><h4>'.$title.'</h4></a></li>';
-
-			
-		}
+			//echo'<li><a href="movie.php?id=' . $id . '"><img src="'.$backdrop.'"><h4>'.$title.'</h4></a></li>';
+				echo'<div class="col-md-4">
+						<div class="thumbnail">
+							<img src="'.$backdrop.'" alt="'.$title.'">
+							<div class="caption">
+								<h3>'.$title.'</h3>
+								<p>'.$release.'</p>
+								<p><a href="movie.php?id='.$id.'" class="btn btn-primary" role="button">View</a></p>
+							</div>
+						</div>
+					</div>';
+					
+				}
+				
         }elseif($channel=="tv"){
             foreach($search->results as $results){
 			$title 		= $results->original_name;
@@ -51,10 +63,24 @@ include_once "api/api_search.php";
 			} else {
 				$backdrop = 'http://image.tmdb.org/t/p/w300'.$backdrop;
 			}
-			echo '<li><a href="tvshow.php?id=' . $id . '"><img src="'.$backdrop.'"><h4>'.$title.'</h4></a></li>';
+			//echo '<li><a href="tvshow.php?id=' . $id . '"><img src="'.$backdrop.'"><h4>'.$title.'</h4></a></li>';
+			echo'<div class="col-md-4">
+					<div class="card">
+						<div class="thumbnail img-fluid">
+							<img src="'.$backdrop.'" alt="'.$title.'">
+							<div class="caption">
+								<h3>'.$title.'</h3>
+								<p>'.$release.'</p>
+								<p><a href="tvshow.php?id='.$id.'" class="btn btn-primary" role="button">View</a></p>
+							</div>
+						</div>
+					</div>	
+				</div>';
 		}
         }
         ?>
+		</div>
+			</div>
         </ul>
  <?php
 include_once('footer.php');

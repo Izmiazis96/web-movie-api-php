@@ -9,8 +9,9 @@
     <div class="container">
       <div class="row">
         <?php
-          include_once "api/api_toprated.php";
-          foreach($toprated->results as $p):
+
+          include_once "api/api_popular.php";
+          foreach($popular->results as $p):
           echo '<div class="col-md-3 col-sm-6 ">
             <div class="card text-white bg-primary mb-4">
             <img class="card-img-top img-fluid" src="http://image.tmdb.org/t/p/w500'. $p->poster_path . '" alt="" style="">
